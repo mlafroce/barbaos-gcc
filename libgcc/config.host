@@ -363,6 +363,9 @@ case ${host} in
 *-*-elf)
   extra_parts="crtbegin.o crtend.o"
   ;;
+*-*-barbaos*)
+  extra_parts="crtbegin.o crtend.o"
+  ;;
 esac
 
 # VxWorks ports rely on specially crafted crtstuff files

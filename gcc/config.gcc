@@ -1171,6 +1171,13 @@ case ${target} in
   *) ;;
   esac
   ;;
+*-*-barbaos*)
+  extra_options="$extra_options gnu-user.opt"
+  gas=yes
+  gnu_ld=yes
+  default_use_cxa_atexit=yes
+  use_gcc_stdint=provide
+  ;;
 esac
 
 # Figure out if we need to enable heap trampolines by default
@@ -2596,7 +2603,9 @@ riscv*-*-freebsd*)
 	gcc_cv_initfini_array=yes
 	with_tls=${with_tls:-trad}
 	;;
-
+riscv*-*-barbaos*)
+	tm_file="${tm_file} elfos.h newlib-stdint.h barbaos.h"
+        ;;
 loongarch*-*-linux*)
 	tm_file="elfos.h gnu-user.h linux.h linux-android.h glibc-stdint.h ${tm_file}"
 	case ${target} in
